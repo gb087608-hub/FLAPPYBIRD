@@ -6,6 +6,7 @@ public class flylogic : MonoBehaviour
 {
     public float flyForce;
     private Rigidbody2D rb2d;
+    public GameOver game;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,5 +25,11 @@ public class flylogic : MonoBehaviour
         {
             rb2d.velocity = Vector2.up * flyForce;
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        game.GameOverActive();
+     
     }
 }
